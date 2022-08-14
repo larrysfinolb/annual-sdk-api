@@ -1,0 +1,31 @@
+{
+	"name": "annual-sdk-api",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"build": "babel --presets=@babel/preset-env index.js -d dist",
+		"dev": "nodemon --exec babel-node --presets=@babel/preset-env index.js",
+		"start": "babel-node --presets=@babel/preset-env index.js"
+	},
+	"keywords": [],
+	"author": "Larrry Finol <larrysfinolb@gmail.com>",
+	"license": "ISC",
+	"devDependencies": {
+		"@babel/cli": "^7.18.10",
+		"@babel/core": "^7.18.10",
+		"@babel/node": "^7.18.10",
+		"@babel/preset-env": "^7.18.10",
+		"nodemon": "^2.0.19"
+	},
+	"dependencies": {
+		"@hapi/boom": "^10.0.0",
+		"cors": "^2.8.5",
+		"express": "^4.18.1",
+		"joi": "^17.6.0",
+		"soap": "^0.45.0"
+	},
+	"engines": {
+		"node": "16.x"
+	}
+}
