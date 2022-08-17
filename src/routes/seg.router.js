@@ -6,7 +6,7 @@ const { loginSaint } = require('../schemas/seg.schema');
 
 const router = express.Router();
 
-router.get('/loginsaint', validatorHandler(loginSaint, 'body'), async (req, res, next) => {
+router.post('/loginsaint', validatorHandler(loginSaint, 'body'), async (req, res, next) => {
 	try {
 		const body = req.body;
 		const result = await service.SEG_LoginSaint(body);

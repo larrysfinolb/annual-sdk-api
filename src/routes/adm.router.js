@@ -15,7 +15,7 @@ router.post('/crearzona', validatorHandler(crearZona, 'body'), async (req, res, 
 		next(error);
 	}
 });
-router.get('/buscarzona', validatorHandler(buscarZona, 'body'), async (req, res, next) => {
+router.post('/buscarzona', validatorHandler(buscarZona, 'body'), async (req, res, next) => {
 	try {
 		const body = req.body;
 		const result = await service.Adm_BuscarZona(body);
@@ -24,7 +24,7 @@ router.get('/buscarzona', validatorHandler(buscarZona, 'body'), async (req, res,
 		next(error);
 	}
 });
-router.patch('/editarzona', validatorHandler(editarZona, 'body'), async (req, res, next) => {
+router.post('/editarzona', validatorHandler(editarZona, 'body'), async (req, res, next) => {
 	try {
 		const body = req.body;
 		const result = await service.Adm_EditarZona(body);
@@ -33,7 +33,7 @@ router.patch('/editarzona', validatorHandler(editarZona, 'body'), async (req, re
 		next(error);
 	}
 });
-router.get('/listarzonas', validatorHandler(listarZonas, 'body'), async (req, res, next) => {
+router.post('/listarzonas', validatorHandler(listarZonas, 'body'), async (req, res, next) => {
 	try {
 		const body = req.body;
 		const result = await service.Adm_ListarZonas(body);
@@ -42,7 +42,7 @@ router.get('/listarzonas', validatorHandler(listarZonas, 'body'), async (req, re
 		next(error);
 	}
 });
-router.delete('/borrarzona', validatorHandler(borrarZona, 'body'), async (req, res, next) => {
+router.post('/borrarzona', validatorHandler(borrarZona, 'body'), async (req, res, next) => {
 	try {
 		const body = req.body;
 		const result = await service.Adm_BorrarZona(body);
