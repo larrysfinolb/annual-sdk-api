@@ -1,3 +1,5 @@
+const { stack } = require('../routes/adm.router');
+
 const boomErrorHandler = (err, req, res, next) => {
 	if (err.isBoom) {
 		const { output } = err;
@@ -10,7 +12,7 @@ const boomErrorHandler = (err, req, res, next) => {
 const errorHandler = (err, req, res, next) => {
 	res.status(500).json({
 		message: err.message,
-		satack: err.stack,
+		stack: err.stack,
 	});
 };
 

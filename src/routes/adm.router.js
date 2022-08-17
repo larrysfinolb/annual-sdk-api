@@ -2,7 +2,7 @@ const express = require('express');
 const service = require('../services/adm.service');
 
 const validatorHandler = require('../middlewares/validator.handler');
-const { crearZona, listarZonas } = require('../schemas/adm.schema');
+const { crearZona, listarZonas, borrarZona, buscarZona, editarZona } = require('../schemas/adm.schema');
 
 const router = express.Router();
 
@@ -15,10 +15,37 @@ router.post('/crearzona', validatorHandler(crearZona, 'body'), async (req, res, 
 		next(error);
 	}
 });
-router.post('/listarzonas', validatorHandler(listarZonas, 'body'), async (req, res, next) => {
+router.get('/buscarzona', validatorHandler(buscarZona, 'body'), async (req, res, next) => {
+	try {
+		const body = req.body;
+		const result = await service.Adm_BuscarZona(body);
+		res.json(result);
+	} catch (error) {
+		next(error);
+	}
+});
+router.patch('/editarzona', validatorHandler(editarZona, 'body'), async (req, res, next) => {
+	try {
+		const body = req.body;
+		const result = await service.Adm_EditarZona(body);
+		res.json(result);
+	} catch (error) {
+		next(error);
+	}
+});
+router.get('/listarzonas', validatorHandler(listarZonas, 'body'), async (req, res, next) => {
 	try {
 		const body = req.body;
 		const result = await service.Adm_ListarZonas(body);
+		res.json(result);
+	} catch (error) {
+		next(error);
+	}
+});
+router.delete('/borrarzona', validatorHandler(borrarZona, 'body'), async (req, res, next) => {
+	try {
+		const body = req.body;
+		const result = await service.Adm_BorrarZona(body);
 		res.json(result);
 	} catch (error) {
 		next(error);
